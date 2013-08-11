@@ -1,0 +1,25 @@
+<table class="table table-striped table-hover {{#if condensed}}table-condensed {{/if}}playlists">
+	{{#each playlists}}
+		<tr{{#if hidden}} class="hidden"{{/if}}>
+			<td>
+				{{#if more}}
+					<a class="text-center" onclick="$(this).parent().parent().parent().children('tr.hidden').removeClass('hidden').hide().fadeIn();$(this).parent().parent().remove()">
+						<small>{{L 'seeMore'}}</small> <span class="caret" style="vertical-align: middle"></span>
+					</a>
+				{{else}}
+					<a href="{{link}}" onclick="LIB.handleLink(event)">
+						{{title}} {{#if owner}}<small class="muted">{{L 'from'}} {{owner}}</small>{{/if}}
+						<small class="pull-right muted">{{songs}} {{L 'songs'}}</small>
+						{{#if search}}
+							<ul class="muted">
+								{{#each search}}
+									<li>{{num}} {{title}}</li>
+								{{/each}}
+							</ul>
+						{{/if}}
+					</a>
+				{{/if}}
+			</td>
+		</tr>
+	{{/each}}
+</table>

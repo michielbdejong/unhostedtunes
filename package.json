@@ -1,0 +1,44 @@
+{
+  "name": "unhostedtunes",
+  "description": "unhosted tunes",
+  "version": "0.2.0",
+  "bundle": {
+    "optimist": "*",
+    "node-static": "*"
+  },
+  "scripts": [
+    "/lib/_jquery.js",
+    "/lib/bootstrap.js",
+    "/lib/fullscreen.js",
+    "/lib/handlebars.js",
+    "/lib/lang.js",
+    "/lib/lib.js",
+    "/lib/md5.js",
+    "/lib/player.js",
+    "/lib/remoteStorage.js",
+    "/lib/sockjs.js",
+    "/lib/soundcloud.js",
+    "/lib/soundmanager2.js",
+    "/lib/youtube.js",
+    "/templates.js",
+    "/main.js"
+  ],
+  "statics": [
+    "/img/",
+    "/css/screen.less",
+    "/js/lib.js"
+  ],
+  "app.manifest": true,
+  "dependencies": {
+    "http-browserify": "*",
+    "optimist": "*",
+    "node-static": "*",
+    "shoe": "*",
+    "youtube-player": "*",
+    "tosource": "*",
+    "dnode": "*",
+    "handlebars": "*",
+    "mimetype": "*",
+    "less": "*"
+  }
+}

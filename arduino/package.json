@@ -1,0 +1,13 @@
+{
+	"name" : "ArduinoEq",
+	"description" : "Serial server to transmit audio information (or pretty much anything) to the arduino from any webpage",
+	"version" : "0.0.1",
+	"dependencies" : {
+		"arduino" : "git://github.com/danielesteban/node-arduino.git",
+		"sockjs" : "latest"
+	},
+	"scripts" : {
+		"start" : "node arduino.js"
+	},
+	"engines" : { "node" : ">=0.8.22" }
+}

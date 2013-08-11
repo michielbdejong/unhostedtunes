@@ -1,0 +1,77 @@
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		{{a 'UnhostedTunes' '/' 'brand'}}
+		<ul class="nav">
+			<li>
+				<form class="form-search navbar-search" onsubmit="SEARCH.submit(event)">
+					<div class="input-append">
+						<input id="searchBox" type="text" class="span2 search-query" placeholder="{{L 'search'}}" />
+						<button type="submit" class="btn btn"><i class="icon-search"></i></button>
+					</div>
+				</form>
+			</li>
+			<li class="divider-vertical"></li>
+			<li rel="explore">{{a null '/' null null 'explore'}}</li>
+			<li rel="about">{{a 'About' '/about'}}</li>
+		</ul>
+		<div id="remotestorage-connect"></div>
+	</div>
+</div>
+<div id="playlistMenu" class="container">
+	<ul class="nav nav-list">
+		<li>{{a null '/queue' null 'list' 'queue'}}</li>
+		<li>{{a null '/history' null 'book' 'history'}}</li>
+		<li class="nav-header">{{L 'playlists'}}</li>
+	</ul>
+	<div id="playlistMenuAdd" class="add">
+		<button class="btn btn-block btn-small" onclick="PLAYLIST.showAdd()"><i class="icon-plus"></i> <span>{{L 'addPlaylist'}}</span></button>
+	</div>
+	<div class="add" style="display:none">
+		<form class="form" onsubmit="PLAYLIST.add(event)">
+			<div class="input-append">
+				<input type="text" name="title" placeholder="{{L 'title'}}" />
+				<button type="submit" class="btn btn"><i class="icon-plus"></i></button>
+			</div>
+		</form>
+	</div>
+</div>
+<div id="panel">
+	<div id="content" class="span10"></div>
+</div>
+<div id="controls" class="navbar navbar-fixed-bottom navbar-inverse">
+	<div class="navbar-inner">
+		<div class="slider">
+			<div></div>
+			<div></div>
+			<span></span>
+			<div class="t"></div>
+		</div>
+		<ul class="nav">
+			<li><button class="btn btn-inverse" onclick="PLAYER.play()"><i class="icon-play"></i></button></li>
+			<li><button class="btn btn-inverse" onclick="PLAYER.prev()"><i class="icon-fast-backward"></i></button></li>
+			<li><button class="btn btn-inverse" onclick="PLAYER.next()"><i class="icon-fast-forward"></i></button></li>
+			<li><button class="btn btn-inverse" onclick="PLAYER.fullscreen()"><i class="icon-fullscreen"></i></button></li>
+			<li class="title"><a onclick="LIB.handleLink(event)"></a></li>
+		</ul>
+		<ul class="nav pull-right">
+			<li class="time"><a>&nbsp;</a></li>
+			<li class="divider-vertical"></li>
+			<li class="lang">
+				<div class="btn-group dropup">
+					<a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
+						{{L 'lang'}}
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu pull-right">
+						{{#nequals lang 'en'}}
+							<li><a onclick="LIB.resetLang('en')" tabindex="-1">English (US)</a></li>
+						{{/nequals}}
+						{{#nequals lang 'es'}}
+							<li><a onclick="LIB.resetLang('es')" tabindex="-1">Castellano (ES)</a></li>
+						{{/nequals}}
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>

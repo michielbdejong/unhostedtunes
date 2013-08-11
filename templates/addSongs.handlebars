@@ -1,0 +1,28 @@
+<div id="addSongs" class="modal hide fade">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h3>{{L "addSongs"}}</h3>
+	</div>
+	<form class="form-horizontal" style="margin:0" onsubmit="PLAYLIST.addSongsSubmit(event)">
+		<div class="modal-body">
+			<div class="control-group">
+				<label class="control-label" for="addSongsPlaylist">Playlist</label>
+				<div class="controls">
+					{{#if playlists}}
+					<select id="addSongsPlaylist" onchange="this.value === '-1' &amp;&amp; $(this).hide().next().removeClass('hidden').focus()">
+						{{#each playlists}}
+							<option value="{{id}}">{{title}}</option>
+						{{/each}}
+					</select>
+					{{else}}
+					<input type="hidden" id="addSongsPlaylist" value="-1" />
+					{{/if}}
+					<input type="text" {{#if playlists}} class="hidden"{{/if}}placeholder="Title" />
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="submit" class="btn btn-primary">{{L "add"}}</button>
+		</div>
+	</form>
+</div>

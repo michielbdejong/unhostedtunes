@@ -1,0 +1,21 @@
+<div class="page-header">
+	<h1>
+		{{L 'queue'}} <small class="labels"></small>
+	</h1>
+</div>
+<div class="row">
+	<div class="span8">
+		<table class="table table-striped table-hover table-condensed songs"></table>
+	</div>
+	<div class="span2">
+		<div class="well">
+			<ul class="nav">
+				<li><button class="btn btn-block" onclick="QUEUE.shake()"><i class="icon-random"></i> {{L 'shake'}}</button></li>
+				<li>&nbsp;</li>
+				<li><button class="btn btn-block btn-danger" onclick="QUEUE.empty()"><i class="icon-remove icon-white"></i> {{L 'empty'}}</button></li>
+				<li>&nbsp;</li>
+				<li class="text-center"><input id="queueAllowDups" type="checkbox" style="margin: 0 5px 0 0" onchange="QUEUE.allowDups = this.checked" {{#if allowDups}}checked="checked"{{/if}}/><label for="queueAllowDups" style="display:inline-block"><small>{{L 'allowDups'}}</small></label></li>
+			</ul>
+		</div>
+	</div>
+</div>

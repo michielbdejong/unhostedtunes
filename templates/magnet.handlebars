@@ -1,0 +1,51 @@
+<div class="page-header">
+	<h1>
+		{{title}}
+		<div>
+			<small>{{magnet}}</small>
+			 <small class="labels"></small>
+		</div>
+	</h1>
+</div>
+<div class="row">
+	<div class="span8">
+		<table class="table table-striped table-hover table-condensed songs">
+			{{#each files}}
+				<tr class="torrent file file-{{@index}}">
+					<td>{{path}}</td>
+					<td>{{length}}</td>
+					<td><button class="btn btn-link" onclick="MAGNET.download('{{../magnet}}',{{@index}})">download</button></td>
+					<td><a class="btn btn-link" target="_" href="http://localhost:8086/{{../magnet}}:{{@index}}">link</a></td>
+				</tr>
+			{{/each}}
+		</table>
+	</div>
+	<div class="span2">
+		<div class="well">
+			<ul class="nav">
+				<li>
+					<button class="btn btn-block" onclick="PLAYLIST.addToQueue()"><i class="icon-plus"></i> {{L 'addToQueue'}}</button>
+				</li>
+				<li>
+					<button class="btn btn-block btn-link" onclick="MAGNET.download('{{magnet}}')"><i class="icon-download-alt"></i> {{L 'download'}}</button>
+				</li>
+				<li>&nbsp;</li>
+				{{#if false}}
+					<li>
+						<div class="progress progress-striped active{{#unless uploading}} hidden{{/unless}}" style="margin:0">
+							<div class="bar" style="width: 100%;">{{uploading}}</div>
+						</div>
+						<button class="btn btn-block upload{{#if uploading}} hidden{{/if}}" onclick="$(this).parent().children().last().click()"><i class="icon-file"></i> {{L 'uploadSongs'}}</button>
+						<input type="file" multiple="true" onchange="PLAYLIST.upload(event)" class="hidden" />
+					</li>
+					<li>&nbsp;</li>
+					<li><button class="btn btn-block btn-danger" onclick="confirm('{{L 'areYouSure'}}') && PLAYLIST.remove('{{id}}')"><i class="icon-remove icon-white"></i> {{L 'removePlaylist'}}</button></li>
+				{{else}}
+					<li>
+						<button class="btn btn-block btn-{{#if downloaded}}success{{else}}primary{{/if}}" onclick="PLAYLIST.subscribe({{#if downloaded}}true{{/if}})"><i class="icon-plus icon-white"></i> {{#if downloaded}}{{L 'subscribed'}}{{else}}{{L 'subscribe'}}{{/if}}</button>
+					</li>
+				{{/if}}
+			</ul>
+		</div>
+	</div>
+</div>

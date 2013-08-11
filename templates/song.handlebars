@@ -1,0 +1,44 @@
+<tr onmouseover="$(this).offset().top - 40 > $('#content').height() - $('ul.dropdown-menu', $(this)).height() && !$('div.dropdown', $(this)).hasClass('dropup') && $('div.dropdown', $(this)).addClass('dropup')">
+	<td>
+		{{#if search}}
+		<img class="img-rounded" onload="$(this).css('visibility', '').hide().fadeIn('fast')" style="visibility:hidden" />
+		{{else}}
+		<small class="muted">{{num}}</small>
+		{{/if}}
+		<i class="icon-volume-up"></i>
+		<a{{#if search}} class="img-play"{{/if}}><i class="icon-play"></i></a>
+	</td>
+	<td>
+		{{title}}
+		{{#if hd}}
+			 <small class="label">HD</small>
+		{{/if}}
+	</td>
+	<td class="t">
+		<div class="dropdown pull-right">
+			<small>{{timeFormatted}}</small>
+			<a class="dropdown-toggle pull-right" data-toggle="dropdown"><span class="caret"></span></a>
+			<ul class="dropdown-menu pull-right" role="options" aria-labelledby="dropdownMenu">
+				{{#unless queue}}
+				<li class="queue"><a tabindex="-1">{{L 'addToQueue'}}</a></li>
+				<li class="divider"></li>
+				{{/unless}}
+				{{#if isOwner}}
+				<li><a tabindex="-1" onclick="PLAYLIST.showRenameSong('{{id}}', '{{title}}')">{{L 'renameSong'}}</a></li>
+				{{/if}}
+				<li><a tabindex="-1" onclick="PLAYLIST.showAddSongs()">{{L 'addTo'}}...</a></li>
+				<li class="divider"></li>
+				<li class="share"><a tabindex="-1">{{L 'share'}}</a></li>
+				{{#if download}}
+				<li><a href="{{download}}" tabindex="-1" target="_blank">{{L 'download'}}</a></li>
+				{{/if}}
+				{{#remove}}
+					<li class="divider"></li>
+					<li>
+						<a tabindex="-1" onclick="{{#if queue}}QUEUE{{else}}PLAYLIST{{/if}}.removeSongs()">{{L 'remove'}}</a>
+					</li>
+				{{/remove}}
+			</ul>
+		</div>
+	</td>
+</tr>

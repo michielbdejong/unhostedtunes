@@ -1,0 +1,37 @@
+<div class="row">
+	<div class="span5 lastPlaylists">
+		<h3>{{L 'lastPlaylists'}}</h3>
+	</div>
+	<div class="span5">
+		<h3>{{L 'following'}}</h3>
+	</div>
+	<div class="span8 offset1">
+		<hr /><br />
+	</div>
+</div>
+<div class="row">
+	<div class="span4 offset3">
+		<label class="pull-left" for="exploreCategory" style="margin: 4px 10px 0 0">{{L 'category'}}:</label>
+		<select id="exploreCategory" onchange="EXPLORE.setCategory(event)">
+			{{#each categories}}
+				<option value="{{id}}">{{title}}</option>
+			{{/each}}
+		</select>
+	</div>
+</div>
+<div class="row">
+	<div class="span4">
+		<h3>{{L 'topRated'}}</h3>
+		<table class="table table-striped table-hover table-condensed songs" id="top_rated"></table>
+	</div>
+	<div class="span3">
+		<h3>{{L 'topFavorites'}}</h3>
+		<table class="table table-striped table-hover table-condensed songs" id="top_favorites"></table>
+	</div>
+	<div class="span3">
+		<h3>{{L 'trending'}}</h3>
+		<table class="table table-striped table-hover table-condensed songs" id="on_the_web"></table>
+		<h3>{{L 'mostShared'}}</h3>
+		<table class="table table-striped table-hover table-condensed songs" id="most_shared"></table>
+	</div>
+</div>

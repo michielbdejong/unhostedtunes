@@ -1,0 +1,41 @@
+<div class="page-header">
+	<h1>
+		{{#if isOwner}}
+			{{inline title 'playlists' id 'title'}}
+		{{else}}
+			{{title}}
+		{{/if}}
+		{{#if owner}} <small>{{L 'from'}} {{a owner.user owner.link 'profile'}}</small>{{/if}}
+		 <small class="labels"></small>
+	</h1>
+</div>
+<div class="row">
+	<div class="span8">
+		<table class="table table-striped table-hover table-condensed songs"></table>
+	</div>
+	<div class="span2">
+		<div class="well">
+			<ul class="nav">
+				<li>
+					<button class="btn btn-block" onclick="PLAYLIST.addToQueue()"><i class="icon-plus"></i> {{L 'addToQueue'}}</button>
+				</li>
+				<li>&nbsp;</li>
+				{{#if isOwner}}
+					<li>
+						<div class="progress progress-striped active{{#unless uploading}} hidden{{/unless}}" style="margin:0">
+							<div class="bar" style="width: 100%;">{{uploading}}</div>
+						</div>
+						<button class="btn btn-block upload{{#if uploading}} hidden{{/if}}" onclick="$(this).parent().children().last().click()"><i class="icon-file"></i> {{L 'uploadSongs'}}</button>
+						<input type="file" multiple="true" onchange="PLAYLIST.upload(event)" class="hidden" />
+					</li>
+					<li>&nbsp;</li>
+					<li><button class="btn btn-block btn-danger" onclick="confirm('{{L 'areYouSure'}}') && PLAYLIST.remove('{{id}}')"><i class="icon-remove icon-white"></i> {{L 'removePlaylist'}}</button></li>
+				{{else}}
+					<li>
+						<button class="btn btn-block btn-{{#if subscribed}}success{{else}}primary{{/if}}" onclick="PLAYLIST.subscribe({{#if subscribed}}true{{/if}})"><i class="icon-plus icon-white"></i> {{#if subscribed}}{{L 'subscribed'}}{{else}}{{L 'subscribe'}}{{/if}}</button>
+					</li>
+				{{/if}}
+			</ul>
+		</div>
+	</div>
+</div>
