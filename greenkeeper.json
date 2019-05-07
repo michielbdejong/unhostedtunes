@@ -1,0 +1,10 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "arduino/package.json",
+        "package.json"
+      ]
+    }
+  }
+}
